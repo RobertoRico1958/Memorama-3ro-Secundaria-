@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Memorama Matemático | 3.º secundaria | Octubre</title>
+<style>
+:root{--bg:#09152b;--panel:#14253f;--panel2:#1c3253;--text:#f3f8ff;--muted:#abc2df;--cyan:#54dfd6;--gold:#ffd679;--pink:#ff91aa;--green:#baf1a2}*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(ellipse at top,#1c3b68 0%,#0a162d 60%,#080f20 100%);color:var(--text);font-family:system-ui,-apple-system,'Segoe UI',sans-serif}main{max-width:1140px;margin:auto;padding:20px 18px 50px}header{text-align:center;margin:12px auto 20px}header .tag{color:var(--cyan);font-size:.8rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase}h1{margin:6px 0;font-size:clamp(2rem,5vw,3.3rem);line-height:1.1}header p{color:var(--muted);margin:9px 0}.setup{display:flex;flex-wrap:wrap;align-items:end;justify-content:center;gap:12px;background:#102440;border:1px solid #315477;border-radius:18px;padding:18px}.field{display:flex;flex-direction:column;gap:5px;min-width:185px}.field label{font-size:.81rem;color:#c8d8f2;font-weight:750}select,button{font:inherit}select{background:#203958;border:1px solid #507095;color:white;border-radius:10px;padding:11px;max-width:100%}button{border:0;border-radius:11px;padding:12px 19px;font-weight:800;cursor:pointer;transition:transform .15s,filter .15s}button:hover{filter:brightness(1.1)}button:active{transform:scale(.97)}button:focus-visible,select:focus-visible,.tile:focus-visible{outline:3px solid #ffe08d;outline-offset:3px}.primary{background:var(--cyan);color:#082132}.secondary{background:#345071;color:white}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:16px auto}.stat{background:#132842;border:1px solid #335577;border-radius:13px;padding:12px;text-align:center}.stat small{color:var(--muted);display:block;margin-bottom:4px}.stat strong{font-size:1.55rem;font-variant-numeric:tabular-nums}.instructions{text-align:center;font-size:.94rem;color:#d7e4fc;margin:12px auto 18px;max-width:860px}.board{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;max-width:900px;margin:0 auto}.board.big{grid-template-columns:repeat(6,minmax(0,1fr));max-width:1100px}.tile{position:relative;min-height:126px;border:2px solid #315a80;border-radius:15px;padding:12px 9px;background:linear-gradient(145deg,#204c79,#163253);color:white;display:flex;align-items:center;justify-content:center;text-align:center;cursor:pointer;box-shadow:0 5px 0 #081729;overflow:hidden}.tile .back{font-size:2.4rem;display:block}.tile .front{display:none;font-size:clamp(.79rem,1.45vw,1rem);line-height:1.3;font-weight:720;overflow-wrap:anywhere}.tile.open{background:#f4f8ff;color:#122b48;border-color:#6ad9ce;cursor:default}.tile.open .back{display:none}.tile.open .front{display:block}.tile.matched{background:#d3f6d2;color:#143c34;border-color:#5cbf8c;cursor:default;box-shadow:0 4px 0 #285b4d}.tile.matched .back{display:none}.tile.matched .front{display:block}.tile.matched::after{content:'✓';position:absolute;right:7px;top:4px;font-size:.95rem;color:#156742;font-weight:900}.tile.wrong{border-color:#ff6e94;background:#ffe2e8;color:#612036}.feedback{max-width:900px;margin:17px auto;text-align:center;min-height:51px;border-radius:12px;background:#152a48;color:#d6eaf9;padding:13px;border:1px solid #365779;font-weight:650}.footer{text-align:center;color:#9db5d3;font-size:.86rem;margin:25px 0}.dialog{border:2px solid var(--cyan);color:#12304a;border-radius:24px;box-shadow:0 24px 90px #020917;background:#f4fcff;max-width:430px;width:calc(100% - 24px);text-align:center;padding:26px}.dialog::backdrop{background:#020713d9}.dialog h2{font-size:1.7rem;margin:7px 0}.dialog p{line-height:1.55}.dialog .primary{margin:6px}.hint{color:#99bbd8;font-size:.8rem;text-align:center;margin:10px}.legend{max-width:900px;margin:20px auto 0;padding:14px;border:1px solid #2e4b6c;background:#11243e;border-radius:14px;color:#bed0e7;font-size:.88rem}.legend strong{color:#e8f6ff}@media(max-width:620px){main{padding:13px 10px 30px}.stats{gap:6px}.stat{padding:8px 3px}.stat strong{font-size:1.2rem}.stat small{font-size:.73rem}.board,.board.big{grid-template-columns:repeat(4,minmax(0,1fr));gap:7px}.tile{min-height:100px;padding:6px 3px;border-radius:10px}.tile .back{font-size:1.65rem}.tile .front{font-size:.67rem}.setup{padding:12px}.field{flex:1;min-width:130px}button{padding:11px}.instructions{font-size:.87rem}}
+</style>
+</head>
+<body><main>
+<header><div class="tag">Reto de octubre · Matemáticas III</div><h1>🧠 Memorama matemático</h1><p>3.º de secundaria · Encuentra las parejas de conceptos y resultados</p></header>
+<section class="setup" aria-label="Opciones de juego">
+<div class="field"><label for="topic">Tema</label><select id="topic"><option value="mixed">Repaso mixto de octubre</option><option value="triangles">Semejanza, congruencia y Tales</option><option value="logs">Logaritmos</option><option value="geometry">Geometría y proporcionalidad</option></select></div>
+<div class="field"><label for="level">Dificultad</label><select id="level"><option value="6">Inicial · 6 parejas</option><option value="8" selected>Intermedio · 8 parejas</option><option value="12">Experto · 12 parejas</option></select></div>
+<button id="start" class="primary">↻ Nueva partida</button><button id="how" class="secondary">? Instrucciones</button>
+</section>
+<section class="stats" aria-label="Marcador"><div class="stat"><small>Parejas</small><strong id="pairs">0/8</strong></div><div class="stat"><small>Intentos</small><strong id="tries">0</strong></div><div class="stat"><small>Tiempo</small><strong id="time">00:00</strong></div><div class="stat"><small>Puntos</small><strong id="score">0</strong></div></section>
+<p class="instructions">Destapa dos tarjetas. Debes asociar una <b>pregunta o concepto</b> con su <b>respuesta correcta</b>. ¡Piensa antes de elegir!</p>
+<section id="board" class="board" aria-label="Tablero de memorama"></section>
+<div class="feedback" role="status" aria-live="polite" id="feedback">Selecciona dos tarjetas para comenzar.</div>
+<div class="legend"><strong>Para el docente:</strong> cada pareja está formada por un concepto y su equivalencia matemática. Los intentos se cuentan por cada dos tarjetas descubiertas; el puntaje premia los aciertos y la rapidez. El juego se puede utilizar sin conexión a internet.</div><div class="footer">Aprender matemáticas también puede ser un juego · Octubre 2026</div>
+</main>
+<dialog id="dialog" class="dialog"><h2 id="dialogTitle">¿Cómo jugar?</h2><p id="dialogBody">Voltea dos tarjetas. Si forman una relación matemática correcta, se quedarán descubiertas. Si no, volverán a ocultarse. ¡Encuentra todas las parejas!</p><button id="closeDialog" class="primary">Entendido</button></dialog>
+<script>
+'use strict';
+const banks={
+ triangles:[
+ ['Triángulos semejantes','Misma forma, ángulos iguales y lados proporcionales'],
+ ['Triángulos congruentes','Misma forma y mismo tamaño'],
+ ['Criterio LLL de congruencia','Tres lados correspondientes iguales'],
+ ['Criterio LAL de congruencia','Dos lados y el ángulo comprendido iguales'],
+ ['Criterio ALA de congruencia','Dos ángulos y el lado comprendido iguales'],
+ ['Criterio AA de semejanza','Dos ángulos correspondientes iguales'],
+ ['Razón de semejanza 2','Cada lado del mayor mide el doble'],
+ ['Lados 3, 4 y 5; factor 3','Lados 9, 12 y 15'],
+ ['Teorema de Tales','Paralelas determinan segmentos proporcionales'],
+ ['6/9 = x/12','x = 8'],
+ ['Perímetros de figuras semejantes','Su razón coincide con la escala lineal'],
+ ['Áreas semejantes con escala 3','Su razón es 9']
+ ],
+ logs:[
+ ['log₂(8)','3'],
+ ['log₁₀(1000)','3'],
+ ['log₃(81)','4'],
+ ['log₅(1)','0'],
+ ['log₇(7)','1'],
+ ['log₂(32)','5'],
+ ['log₂(4 × 8)','log₂(4) + log₂(8)'],
+ ['log₁₀(100/10)','log₁₀(100) − log₁₀(10)'],
+ ['log₂(8²)','2·log₂(8)'],
+ ['log_b(a) = c','bᶜ = a'],
+ ['log₂(16) + log₂(2)','5'],
+ ['100·2ᵗ = 800','t = 3']
+ ],
+ geometry:[
+ ['Área de un triángulo','A = (base × altura)/2'],
+ ['Área de un círculo','A = πr²'],
+ ['Volumen de un cilindro','V = πr²h'],
+ ['Volumen de un prisma','V = área de la base × altura'],
+ ['Volumen de una pirámide','V = (área de la base × altura)/3'],
+ ['Volumen de una esfera','V = 4πr³/3'],
+ ['Escala 1:100','1 cm representa 100 cm'],
+ ['10/15 = 2/x','x = 3'],
+ ['Base 8 y altura 5 (triángulo)','Área = 20 u²'],
+ ['Radio 3 (círculo)','Área = 9π u²'],
+ ['Prisma de base 12 y altura 4','Volumen = 48 u³'],
+ ['Perímetro de cuadrado, lado 7','28 unidades']
+ ]
+};
+// Mixed bank avoids overlapping answers that would make pairing ambiguous.
+const mixed=[banks.triangles[0],banks.triangles[1],banks.triangles[5],banks.triangles[8],banks.triangles[9],banks.triangles[11],banks.logs[0],banks.logs[2],banks.logs[4],banks.logs[9],banks.geometry[2],banks.geometry[4]];
+const $=id=>document.getElementById(id),board=$('board');let deck=[],first=null,lock=false,matches=0,attempts=0,score=0,seconds=0,timer=null,started=false,token=0;
+const shuffle=a=>{for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+function update(){ $('pairs').textContent=`${matches}/${deck.length/2}`;$('tries').textContent=attempts;$('score').textContent=score;$('time').textContent=`${String(Math.floor(seconds/60)).padStart(2,'0')}:${String(seconds%60).padStart(2,'0')}`}
+function startTimer(){if(started)return;started=true;timer=setInterval(()=>{seconds++;update()},1000)}
+function newGame(){token++;clearInterval(timer);timer=null;started=false;first=null;lock=false;matches=attempts=score=seconds=0;let requested=Number($('level').value);let pool=$('topic').value==='mixed'?mixed:banks[$('topic').value];let selected=shuffle(pool.map((p,i)=>({p,i}))).slice(0,requested);deck=shuffle(selected.flatMap(({p,i})=>[{key:i,label:p[0],kind:0},{key:i,label:p[1],kind:1}]));board.className='board'+(requested===12?' big':'');board.innerHTML='';deck.forEach((card,i)=>{let b=document.createElement('button');b.type='button';b.className='tile';b.setAttribute('aria-label',`Tarjeta ${i+1}, oculta`);b.innerHTML='<span class="back" aria-hidden="true">✦</span><span class="front"></span>';b.querySelector('.front').textContent=card.label;b.addEventListener('click',()=>flip(i));board.appendChild(b)});$('feedback').textContent='¡Encuentra las parejas matemáticas!';update()}
+function flip(i){if(lock)return;let b=board.children[i],card=deck[i];if(!b||b.classList.contains('open')||b.classList.contains('matched'))return;startTimer();b.classList.add('open');b.setAttribute('aria-label',card.label);if(first===null){first=i;$('feedback').textContent='Busca la tarjeta que corresponda a esta expresión o concepto.';return}let previous=first;first=null;attempts++;let b0=board.children[previous],c0=deck[previous];if(card.key===c0.key&&card.kind!==c0.kind){b.classList.add('matched');b0.classList.add('matched');b.classList.remove('open');b0.classList.remove('open');b.setAttribute('aria-label',card.label+', pareja encontrada');b0.setAttribute('aria-label',c0.label+', pareja encontrada');matches++;score+=100;$('feedback').textContent='✅ ¡Correcto! Has encontrado una relación matemática.';update();if(matches===deck.length/2){clearInterval(timer);let bonus=Math.max(0,Math.floor(300-seconds*2));score+=bonus;update();$('dialogTitle').textContent='🏆 ¡Memorama completado!';$('dialogBody').textContent=`Lograste ${matches} parejas en ${attempts} intentos y ${$('time').textContent}. Puntaje final: ${score}. ¡Excelente práctica de matemáticas!`;$('closeDialog').textContent='Jugar otra vez';$('closeDialog').dataset.restart='1';$('dialog').showModal()}return}lock=true;b.classList.add('wrong');b0.classList.add('wrong');$('feedback').textContent='🔎 No coinciden. Revisa qué significa cada tarjeta e inténtalo de nuevo.';update();let currentToken=token;setTimeout(()=>{if(currentToken!==token)return;[b,b0].forEach(el=>{el.classList.remove('open','wrong');el.setAttribute('aria-label',`Tarjeta ${Array.prototype.indexOf.call(board.children,el)+1}, oculta`)});lock=false},1150)}
+$('start').addEventListener('click',newGame);$('topic').addEventListener('change',newGame);$('level').addEventListener('change',newGame);$('how').addEventListener('click',()=>{$('dialogTitle').textContent='¿Cómo jugar?';$('dialogBody').textContent='Selecciona dos tarjetas para descubrir su contenido. Busca la pareja correcta entre concepto y definición, fórmula o resultado. Cada intento cuenta; intenta resolver el tablero con pocos movimientos. Puedes elegir el tema y la dificultad.';$('closeDialog').textContent='Entendido';$('closeDialog').dataset.restart='0';$('dialog').showModal()});$('closeDialog').addEventListener('click',()=>{let again=$('closeDialog').dataset.restart==='1';$('dialog').close();if(again)newGame()});newGame();
+</script>
+</body></html>
